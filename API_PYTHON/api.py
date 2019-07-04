@@ -20,7 +20,7 @@ def menu():
         print( ">> Use (2) Para Inserir Carros")
         print( ">> Use (3) Para Atualizar Carros")
         print( ">> Use (4) Para Deletar Carros")
-        print( ">> Use (0) Para Abortar :/")
+        print( ">> Use (0) Para Abortar")
 menu()
 valor = input('Resposta :')
 if valor == '1':
@@ -29,13 +29,17 @@ if valor == '1':
     print("\n-----Carros encontrados-----\n")
     for item in output['data']:
         print('>> Id:',item['id'],'\n>> Nome: ', item['nome'], '\n>> Marca: ', item['marca'], '\n>>Modelo: ', item['modelo'], '\n>> Cor: ', item['cor'], '\n>>Ano: ', item['ano'], '\n>>Concessionaria :', item['concessionarias']['nome'],['pais'],['estado'],['cidade'],['logradouro'])
-elif= valor == '2' :
+elif valor == '2' :
     os.system('clear')
     print(" >> Use (1) Concessionaria 1")
     print(" >> Use (2) Concessionaria 2")
     concessionaria = input('Digite o Número da Concessionaria: ')
     nome = input("Digite o Nome do Carro :")
-    desc = input("Digite a Descrição do Carro :")
+    marca = input("Digite a marca do Carro :")
+    modelo = input("Digite o modelo do Carro :")
+    cor = input("Digite a cor do Carro :")
+    ano = input("Digite o ano do Carro :")
+    concessionaria = input("Digite a concessionaria do Carro :")
     requests.post('http://localhost:8000/api/carros', data = {'nome':nome, 'marca':marca,'modelo':modelo,'cor':cor,'ano':ano, 'concessionaria_id':concessionaria})
 elif valor == '4':
     os.system('clear')
